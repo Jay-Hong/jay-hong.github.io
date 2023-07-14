@@ -25,7 +25,7 @@
   ol {
     padding: 0;
     list-style: none;
-    font-size: $type-size-6;
+    font-size: $type-size-5;
 
     @include breakpoint($large) {
       float: right;
@@ -33,7 +33,7 @@
     }
 
     @include breakpoint($x-large) {
-      width: calc(100% - #{$right-sidebar-width});
+      width: calc(100% - #{$right-sidebar-width-narrow});
     }
   }
 
@@ -90,7 +90,8 @@
       &.current,
       &.current.disabled {
         color: #fff;
-        background: $primary-color;
+        background: $footer-background-color;
+        // background: $primary-color;
       }
 
       &.disabled {
@@ -243,7 +244,8 @@
         left: 0;
         bottom: 0;
         height: 4px;
-        background: $primary-color;
+        background: mix($primary-color, $text-color, 30%);
+        // background: $primary-color;
         width: 100%;
         -webkit-transition: $global-transition;
         transition: $global-transition;
@@ -515,7 +517,7 @@
   .nav__title {
     color: #fff;
     font-size: $type-size-6;
-    background: $primary-color;
+    background: $toc-color;
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
   }

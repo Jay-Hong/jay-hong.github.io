@@ -15,11 +15,13 @@ html {
   }
 
   @include breakpoint($large) {
-    font-size: 20px;
+    font-size: 18px;
+    /* font-size: 20px; */
   }
 
   @include breakpoint($x-large) {
-    font-size: 22px;
+    font-size: 18px;
+    /* font-size: 22px; */
   }
 
   -webkit-text-size-adjust: 100%;
@@ -38,8 +40,8 @@ body { margin: 0; }
 }
 
 ::selection {
-  color: #fff;
-  background: #000;
+  color: #000000;
+  background: #d0be66;
 }
 
 /* Display HTML5 elements in IE6-9 and FF3 */
@@ -136,7 +138,8 @@ input,
 select,
 textarea {
   margin: 0;
-  font-size: 100%;
+  font-size: 180%; /* 검색입력 문자 키움 */
+  /* font-size: 100%; */
   vertical-align: middle;
 }
 
