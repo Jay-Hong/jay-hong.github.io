@@ -5,6 +5,21 @@ tag: [🌵 python, 🍜 BeautifulSoup, ✅ Selenium]
 toc: true
 excerpt: false
 ---
+## 참고사이트
+
+은행별 주요통화 인터넷환전수수료 우대율 비교 : <http://exchange.kfb.or.kr/page/on_commission.php>
+
+국민은행 환율조회 : <https://obank.kbstar.com/quics?page=C101423&QSL=F#loading>
+
+신한은행 환율조회 : <https://bank.shinhan.com/index.jsp#020501010000>
+
+하나은행 환율조회 : <https://www.kebhana.com/cont/mall/mall15/mall1501/index.jsp>
+
+우리은행 환율조회1 : <https://spot.wooribank.com/pot/Dream?withyou=FXXRT0011>
+
+우리은행 환율조회2 : <https://spib.wooribank.com/pib/Dream?withyou=CMCOM0184>
+
+우리은행 환율조회3 : <https://m.wooribank.com/mw/mws?withyou=MWFCE0005>
 
 ## 은행별 고시환율 크롤링
 ```python

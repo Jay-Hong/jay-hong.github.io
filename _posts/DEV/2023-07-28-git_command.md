@@ -13,6 +13,21 @@ excerpt: false
 git marge --no-ff [병합할Branch]
 ```
 
+## 커밋 수정하기
+메시지만 수정
+```
+git commit --amend -m "수정할 커밋 메시지"
+```
+
+변경내용 수정
+
+```
+git add .
+git commit --amend
+```
+
+⬇️ 수정 후 강제푸쉬
+
 ## 강제푸쉬
 ```
 git push (origin master) --force-with-lease
