@@ -60,6 +60,834 @@ for item in data:
 
 ## 정규표현식
 
+
+
+### ' [A-Za-z]+\.' --> regular expression 이라고 함
+* 특정한 규칙을 가진 문자열의 집합을 표현하는 데 사용하는 형식
+
+<table>
+    <thead>
+        <tr style="font-size:1.2em">
+            <th style="text-align:center">정규 표현식</th>
+            <th style="text-align:center">축약 표현</th>
+            <th style="text-align:left">사용 예</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="font-size:1.2em">
+            <td style="text-align:center">[0-9]</td>
+            <td style="text-align:center">\d</td>
+            <td style="text-align:left">숫자를 찾음</td>
+        </tr>
+        <tr style="font-size:1.2em">
+            <td style="text-align:center">[^0-9]</td>
+            <td style="text-align:center">\D</td>
+            <td style="text-align:left">숫자가 아닌 것을 찾음(텍스트, 특수 문자, white space(스페이스, 탭, 엔터 등등)를 찾을 때)</td>
+        </tr>
+        <tr style="font-size:1.2em">
+            <td style="text-align:center">[ \t\n\r\f\v]</td>
+            <td style="text-align:center">\s</td>
+            <td style="text-align:left">white space(스페이스, 탭, 엔터 등등) 문자인 것을 찾음</td>
+        </tr>
+        <tr style="font-size:1.2em">
+            <td style="text-align:center">[^ \t\n\r\f\v]</td>
+            <td style="text-align:center">\S</td>
+            <td style="text-align:left">white space(스페이스, 탭, 엔터 등등) 문자가 아닌 것을 찾음(텍스트, 특수 문자, 숫자를 찾을 때)</td>
+        </tr>
+        <tr style="font-size:1.2em">
+            <td style="text-align:center">[A-Za-z0-9]</td>
+            <td style="text-align:center">\w</td>
+            <td style="text-align:left">문자, 숫자를 찾음</td>
+        </tr>
+        <tr style="font-size:1.2em">
+            <td style="text-align:center">[^A-Za-z0-9]</td>
+            <td style="text-align:center">\W</td>
+            <td style="text-align:left">문자, 숫자가 아닌 것을 찾음</td>
+        </tr>
+    </tbody>
+</table>
+
+### 예: 문자, 숫자가 아닌 데이터를 찾아서, '' 로 대체해라(삭제해라)
+
+
+```python
+import re
+string = "(Dave)"
+re.sub('[^A-Za-z0-9]', '', string)    # 문자, 숫자가 아닌 데이터를 찾아서, '' 로 대체해라(삭제해라)
+```
+
+
+
+
+    'Dave'
+
+
+
+
+```python
+string.replace("(", '').replace(")", '')
+```
+
+
+
+
+    'Dave'
+
+
+
+## 정규표현식 확인: https://regexr.com/
+
+
+```python
+
+```
+
+### 위 정규 표현식은 일정한 규칙을 가지고 작성됨, 필요한 패턴은 직접 만들 수도 있음
+
+### 1. Dot \.
+* Dot \. 메타 문자는 줄바꿈 문자인 \n를 제외한 모든 문자(한 개)를 의미함
+* 예: D.A 는 D + 모든 문자(한 개) + A 를 의미
+  - DAA, DvA, D1A
+
+### 정규 표현식 라이브러리 임포트하기
+
+
+```python
+import re
+```
+
+### 정규 표현식 패턴 만들기
+
+
+```python
+pattern = re.compile('D.A')
+```
+
+### 패턴에 매칭되는지 여부 확인하기 (실습)
+
+
+```python
+pattern.search("DAA")
+```
+
+
+
+
+    <re.Match object; span=(0, 3), match='DAA'>
+
+
+
+
+```python
+pattern.search("D1A")
+```
+
+
+
+
+    <re.Match object; span=(0, 3), match='D1A'>
+
+
+
+
+```python
+pattern.search("D00A")
+```
+
+
+```python
+pattern.search("DA")
+```
+
+
+```python
+pattern.search("d0A")
+```
+
+
+```python
+pattern.search("d0A D1A 0111")
+```
+
+
+
+
+    <re.Match object; span=(4, 7), match='D1A'>
+
+
+
+### 정말 Dot . 이 들어간 패턴을 찾으려면?
+<pre>
+\. 으로 표시하거나, [.] 으로 표시하면 됨
+</pre>
+
+
+```python
+pattern = re.compile('D\.A')
+```
+
+
+```python
+pattern.search("D.A")
+```
+
+
+
+
+    <re.Match object; span=(0, 3), match='D.A'>
+
+
+
+
+```python
+pattern.search("DDA")
+```
+
+
+```python
+pattern = re.compile('D[.]A')
+```
+
+### 찾고 바꾸기 (특정 패턴이 매칭되는 것을 찾아서, 다른 문자열로 바꾸기)
+
+
+```python
+string = "DDA D1A DDA DA"
+```
+
+
+```python
+# re.sub(패턴, 바꿀데이터, 원본데이터)
+re.sub('D.A', 'Dave', string)    # 문자, 숫자가 아닌 데이터를 찾아서, '' 로 대체해라(삭제해라)
+```
+
+
+
+
+    'Dave Dave Dave DA'
+
+
+
+### 2. 반복 ? , \* , +
+* ? 는 앞 문자가 0번 또는 1번 표시되는 패턴 (없어도 되고, 한번 있어도 되는 패턴)
+* \* 는 앞 문자가 0번 또는 그 이상 반복되는 패턴
+* \+ 는 앞 문자가 1번 또는 그 이상 반복되는 패턴
+
+### ? 사용 예
+
+
+```python
+pattern = re.compile('D?A')     # 앞에 문자 D가 없거나, 여러번 반복되고 마지막이 A 인 문자열
+```
+
+
+```python
+pattern.search("A")
+```
+
+
+
+
+    <re.Match object; span=(0, 1), match='A'>
+
+
+
+
+```python
+pattern.search("DA")
+```
+
+
+
+
+    <re.Match object; span=(0, 2), match='DA'>
+
+
+
+
+```python
+pattern.search("DDDDDDA")
+```
+
+
+
+
+    <re.Match object; span=(5, 7), match='DA'>
+
+
+
+
+```python
+
+```
+
+### \* 사용 예
+
+
+```python
+pattern = re.compile('D*A')     # 앞에 문자 D가 없거나, 여러번 반복되고 마지막이 A 인 문자열
+```
+
+
+```python
+pattern.search("A")
+```
+
+
+
+
+    <re.Match object; span=(0, 1), match='A'>
+
+
+
+
+```python
+pattern.search("DA")
+```
+
+
+
+
+    <re.Match object; span=(0, 2), match='DA'>
+
+
+
+
+```python
+pattern.search("DDDDDDDDDDDDDDDDDDDDDDDDDDDDA")
+```
+
+
+
+
+    <re.Match object; span=(0, 29), match='DDDDDDDDDDDDDDDDDDDDDDDDDDDDA'>
+
+
+
+
+```python
+pattern = re.compile('AD*A')     # 앞에 문자 D가 없거나, 여러번 반복되고 마지막이 A 인 문자열
+```
+
+
+```python
+pattern.search("ADA")
+```
+
+
+
+
+    <re.Match object; span=(0, 3), match='ADA'>
+
+
+
+
+```python
+pattern.search("ADDDDDDDDDDDDDDDDDDA")
+```
+
+
+
+
+    <re.Match object; span=(0, 20), match='ADDDDDDDDDDDDDDDDDDA'>
+
+
+
+
+```python
+
+```
+
+* 참고: https://regexr.com/
+
+### + 사용 예
+
+
+```python
+pattern = re.compile('D+A')
+```
+
+
+```python
+pattern.search("A")
+```
+
+
+```python
+pattern.search("DA")
+```
+
+
+
+
+    <re.Match object; span=(0, 2), match='DA'>
+
+
+
+
+```python
+pattern.search("DDDDDDDDDDDDDDDDDDDDDDDDDDDDA")
+```
+
+
+
+
+    <re.Match object; span=(0, 29), match='DDDDDDDDDDDDDDDDDDDDDDDDDDDDA'>
+
+
+
+### 또다른 반복 표현: {n}, {m,n}
+* {n} : 앞 문자가 n 번 반복되는 패턴
+* {m, n} : 앞 문자가 m 번 반복되는 패턴부터 n 번 반복되는 패턴까지
+
+### {n} 사용 예
+
+
+```python
+pattern = re.compile('AD{2}A')
+```
+
+
+```python
+pattern.search("ADA")
+```
+
+
+```python
+pattern.search("ADDA")
+```
+
+
+
+
+    <re.Match object; span=(0, 4), match='ADDA'>
+
+
+
+
+```python
+pattern.search("ADDDA")
+```
+
+### {m,n} 사용 예
+
+
+```python
+pattern = re.compile('AD{2,6}A')    # {m,n} 은 붙여 써야 함 {m, n} 으로 쓰면 안됨(특이함)
+```
+
+
+```python
+pattern.search("ADDA")
+```
+
+
+
+
+    <re.Match object; span=(0, 4), match='ADDA'>
+
+
+
+
+```python
+pattern.search("ADDDA")
+```
+
+
+
+
+    <re.Match object; span=(0, 5), match='ADDDA'>
+
+
+
+
+```python
+pattern.search("ADDDDDDA")
+```
+
+
+
+
+    <re.Match object; span=(0, 8), match='ADDDDDDA'>
+
+
+
+### 3. [ ] 괄호 : 괄호 안에 들어가는 문자가 들어 있는 패턴
+* 예:  [abc] 는 a, b, c 중 하나가 들어 있는 패턴을 말함
+
+
+```python
+pattern = re.compile('[abcdefgABCDEFG]')    
+```
+
+
+```python
+pattern.search("a1234")
+```
+
+
+
+
+    <re.Match object; span=(0, 1), match='a'>
+
+
+
+
+```python
+pattern.search("z1234")  
+```
+
+### 하이픈(-)을 이용하면 알파벳 전체를 나타낼 수 있음
+* 예:  [a-c] 는 a, b, c 중 하나가 들어 있는 패턴을 말함
+
+
+```python
+pattern = re.compile('[a-z]')    
+```
+
+
+```python
+pattern.search("k1234")  
+```
+
+
+
+
+    <re.Match object; span=(0, 1), match='k'>
+
+
+
+
+```python
+pattern.search("Z1234")  
+```
+
+### [a-zA-Z] 으로 표기하면 대소문자를 모두 포함해서 알파벳 전체를 나타낼 수 있음
+
+
+```python
+pattern = re.compile('[a-zA-Z]') 
+```
+
+
+```python
+pattern.search("Z1234")  
+```
+
+
+
+
+    <re.Match object; span=(0, 1), match='Z'>
+
+
+
+### [a-zA-Z0-9] 로 표기하면 대소문자를 모두 포함해서 알파벳 전체와 함께 숫자 전체도 나타낼 수 있음
+
+
+```python
+pattern = re.compile('[a-zA-Z0-9]') 
+```
+
+
+```python
+pattern.search("1234---") 
+```
+
+
+
+
+    <re.Match object; span=(0, 1), match='1'>
+
+
+
+
+```python
+pattern.search("---------------!@#!@$!$%#%%%#%%@$!$!---") 
+```
+
+### [ ] 괄호 안에서 [ 바로 뒤에 ^ 을 쓰면 그 뒤에 오는 문자가 아닌 패턴을 찾음
+* 문자를 결국 알파벳, 숫자, 특수문자, whitespace(스페이스, 탭, 엔터등) 로 분류할 수 있으므로
+* [^ \t\n\r\f\v] 는 이중에서 whitespace 가 아닌 알파벳, 숫자, 특수문자를 지칭함
+
+
+```python
+pattern = re.compile('[^a-zA-Z0-9]') 
+```
+
+
+```python
+pattern.search("---------------!@#!@$!$%#%%%#%%@$!$!---") 
+```
+
+
+
+
+    <re.Match object; span=(0, 1), match='-'>
+
+
+
+
+```python
+
+```
+
+
+```python
+pattern = re.compile('[^ \t\n\r\f\v]') 
+```
+
+
+```python
+pattern.search("-") 
+```
+
+
+
+
+    <re.Match object; span=(0, 1), match='-'>
+
+
+
+
+```python
+pattern.search(" ")
+```
+
+### 그러면 한글만? --> [가-힣]
+
+
+```python
+pattern = re.compile('[가-힣]') 
+```
+
+
+```python
+pattern.search("안") 
+```
+
+
+
+
+    <re.Match object; span=(0, 1), match='안'>
+
+
+
+### 4. 조합해서 써보자
+
+
+```python
+import re
+pattern = re.compile('[a-zA-Z]+')
+matched = pattern.search("Dave")
+print(matched)
+```
+
+    <re.Match object; span=(0, 4), match='Dave'>
+
+
+### 5. 정규 표현식 라이브러리 함수 사용법
+
+### match 와 search 함수
+* match : 문자열 처음부터 정규식과 매칭되는 패턴을 찾아서 리턴
+* search : 문자열 전체를 검색해서 정규식과 매칭되는 패턴을 찾아서 리턴
+
+
+```python
+import re
+pattern = re.compile('[a-z]+')
+```
+
+
+```python
+matched = pattern.match('Dave')
+```
+
+
+```python
+searched = pattern.search("Dave")
+```
+
+
+```python
+print (matched)
+```
+
+    None
+
+
+
+```python
+print (searched)
+```
+
+    <re.Match object; span=(1, 4), match='ave'>
+
+
+### findall 함수: 정규표현식과 매칭되는 모든 문자열을 리스트 객체로 리턴함
+
+
+```python
+import re
+pattern = re.compile('[a-z]+')
+findalled = pattern.findall('Game of Life in Python')
+```
+
+
+```python
+print (findalled)
+```
+
+    ['ame', 'of', 'ife', 'in', 'ython']
+
+
+
+```python
+pattern2 = re.compile('[A-Za-z]+')
+```
+
+
+```python
+findalled2 = pattern2.findall('Game of Life in Python')
+```
+
+
+```python
+print (findalled2)
+```
+
+    ['Game', 'of', 'Life', 'in', 'Python']
+
+
+### findall 함수를 사용해서 정규표현식에 해당되는 문자열이 있는지 없는지 확인하기
+
+
+```python
+import re
+pattern = re.compile('[a-z]+')
+findalled = pattern.findall('GAME')
+if len(findalled) > 0:
+    print ("정규표현식에 맞는 문자열이 존재함")
+else:
+    print ("정규표현식에 맞는 문자열이 존재하지 않음")
+```
+
+    정규표현식에 맞는 문자열이 존재하지 않음
+
+
+
+```python
+
+```
+
+### split 함수: 찾은 정규표현식 패턴 문자열을 기준으로 문자열을 분리
+
+
+```python
+import re
+pattern2 = re.compile(':')
+splited = pattern2.split('python:java')
+```
+
+
+```python
+print (splited)
+```
+
+    ['python', 'java']
+
+
+<div class="alert alert-block alert-success">
+<strong><font color="blue" size="4em">프로그래밍 연습</font></strong><br>
+' VS ' 로 문자열 앞뒤를 분리해보기 
+</div>
+
+
+```python
+import re
+pattern2 = re.compile(' [A-Z]{2} ')
+splited = pattern2.split('python VS java')
+print (splited)
+```
+
+    ['python', 'java']
+
+
+### sub 함수: 찾은 정규표현식 패턴 문자열을 다른 문자열로 변경
+
+
+```python
+import re
+pattern2 = re.compile('-')
+subed = pattern2.sub('*', '801210-1011323')  # sub(바꿀문자열, 본래문자열)
+```
+
+
+```python
+print (subed)
+```
+
+    801210*1011323
+
+
+
+```python
+subed = re.sub('-', '*', '801210-1011323')  # sub(정규표현식, 바꿀문자열, 본래문자열)
+```
+
+
+```python
+print (subed)
+```
+
+    801210*1011323
+
+
+
+```python
+
+```
+
+
+```python
+801210-*******
+```
+
+<div class="alert alert-block alert-success">
+<strong><font color="blue" size="4em">도전 과제</font></strong><br>
+주민번호 뒷자리를 * 로 바꿔서 가려보기<br>
+re.sub('-------', '------', each_row[1].value)   <--- 정규표현식, 바꿀문자열 을 넣어봅니다.
+</div>
+<pre>
+import openpyxl
+work_book = openpyxl.load_workbook('data_kr.xlsx')
+work_sheet = work_book.active
+for each_row in work_sheet.rows:
+    print(re.sub('-------', '------', each_row[1].value))
+    
+work_book.close()
+</pre>
+
+
+```python
+import openpyxl
+work_book = openpyxl.load_workbook('data_kr.xlsx')
+work_sheet = work_book.active
+for each_row in work_sheet.rows:
+    print(re.sub('-[0-9]{7}', '-*******', each_row[1].value))
+
+work_book.close()
+```
+
+    주민등록번호
+    800215-*******
+    821030-*******
+    841230-*******
+    790903-*******
+    800125-*******
+    820612-*******
+
+
+
 <div class="alert alert-block alert-success">
 <strong><font color="orange" size="4em">프로그래밍 연습(생각만 해보기)</font></strong><br>
 다음 코드를 실행해보고, 이름 정보를 통해 남자인지, 여자인지, 기타인지(남녀 구별 불가)를 확인할 수 있는 방법 생각해보기
@@ -4219,829 +5047,3 @@ work_book.close()
     Dooley, Mr. Patrick
     [' Mr.']
     남성
-
-
-### ' [A-Za-z]+\.' --> regular expression 이라고 함
-* 특정한 규칙을 가진 문자열의 집합을 표현하는 데 사용하는 형식
-
-<table>
-    <thead>
-        <tr style="font-size:1.2em">
-            <th style="text-align:center">정규 표현식</th>
-            <th style="text-align:center">축약 표현</th>
-            <th style="text-align:left">사용 예</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr style="font-size:1.2em">
-            <td style="text-align:center">[0-9]</td>
-            <td style="text-align:center">\d</td>
-            <td style="text-align:left">숫자를 찾음</td>
-        </tr>
-        <tr style="font-size:1.2em">
-            <td style="text-align:center">[^0-9]</td>
-            <td style="text-align:center">\D</td>
-            <td style="text-align:left">숫자가 아닌 것을 찾음(텍스트, 특수 문자, white space(스페이스, 탭, 엔터 등등)를 찾을 때)</td>
-        </tr>
-        <tr style="font-size:1.2em">
-            <td style="text-align:center">[ \t\n\r\f\v]</td>
-            <td style="text-align:center">\s</td>
-            <td style="text-align:left">white space(스페이스, 탭, 엔터 등등) 문자인 것을 찾음</td>
-        </tr>
-        <tr style="font-size:1.2em">
-            <td style="text-align:center">[^ \t\n\r\f\v]</td>
-            <td style="text-align:center">\S</td>
-            <td style="text-align:left">white space(스페이스, 탭, 엔터 등등) 문자가 아닌 것을 찾음(텍스트, 특수 문자, 숫자를 찾을 때)</td>
-        </tr>
-        <tr style="font-size:1.2em">
-            <td style="text-align:center">[A-Za-z0-9]</td>
-            <td style="text-align:center">\w</td>
-            <td style="text-align:left">문자, 숫자를 찾음</td>
-        </tr>
-        <tr style="font-size:1.2em">
-            <td style="text-align:center">[^A-Za-z0-9]</td>
-            <td style="text-align:center">\W</td>
-            <td style="text-align:left">문자, 숫자가 아닌 것을 찾음</td>
-        </tr>
-    </tbody>
-</table>
-
-### 예: 문자, 숫자가 아닌 데이터를 찾아서, '' 로 대체해라(삭제해라)
-
-
-```python
-import re
-string = "(Dave)"
-re.sub('[^A-Za-z0-9]', '', string)    # 문자, 숫자가 아닌 데이터를 찾아서, '' 로 대체해라(삭제해라)
-```
-
-
-
-
-    'Dave'
-
-
-
-
-```python
-string.replace("(", '').replace(")", '')
-```
-
-
-
-
-    'Dave'
-
-
-
-## 정규표현식 확인: https://regexr.com/
-
-
-```python
-
-```
-
-### 위 정규 표현식은 일정한 규칙을 가지고 작성됨, 필요한 패턴은 직접 만들 수도 있음
-
-### 1. Dot \.
-* Dot \. 메타 문자는 줄바꿈 문자인 \n를 제외한 모든 문자(한 개)를 의미함
-* 예: D.A 는 D + 모든 문자(한 개) + A 를 의미
-  - DAA, DvA, D1A
-
-### 정규 표현식 라이브러리 임포트하기
-
-
-```python
-import re
-```
-
-### 정규 표현식 패턴 만들기
-
-
-```python
-pattern = re.compile('D.A')
-```
-
-### 패턴에 매칭되는지 여부 확인하기 (실습)
-
-
-```python
-pattern.search("DAA")
-```
-
-
-
-
-    <re.Match object; span=(0, 3), match='DAA'>
-
-
-
-
-```python
-pattern.search("D1A")
-```
-
-
-
-
-    <re.Match object; span=(0, 3), match='D1A'>
-
-
-
-
-```python
-pattern.search("D00A")
-```
-
-
-```python
-pattern.search("DA")
-```
-
-
-```python
-pattern.search("d0A")
-```
-
-
-```python
-pattern.search("d0A D1A 0111")
-```
-
-
-
-
-    <re.Match object; span=(4, 7), match='D1A'>
-
-
-
-### 정말 Dot . 이 들어간 패턴을 찾으려면?
-<pre>
-\. 으로 표시하거나, [.] 으로 표시하면 됨
-</pre>
-
-
-```python
-pattern = re.compile('D\.A')
-```
-
-
-```python
-pattern.search("D.A")
-```
-
-
-
-
-    <re.Match object; span=(0, 3), match='D.A'>
-
-
-
-
-```python
-pattern.search("DDA")
-```
-
-
-```python
-pattern = re.compile('D[.]A')
-```
-
-### 찾고 바꾸기 (특정 패턴이 매칭되는 것을 찾아서, 다른 문자열로 바꾸기)
-
-
-```python
-string = "DDA D1A DDA DA"
-```
-
-
-```python
-# re.sub(패턴, 바꿀데이터, 원본데이터)
-re.sub('D.A', 'Dave', string)    # 문자, 숫자가 아닌 데이터를 찾아서, '' 로 대체해라(삭제해라)
-```
-
-
-
-
-    'Dave Dave Dave DA'
-
-
-
-### 2. 반복 ? , \* , +
-* ? 는 앞 문자가 0번 또는 1번 표시되는 패턴 (없어도 되고, 한번 있어도 되는 패턴)
-* \* 는 앞 문자가 0번 또는 그 이상 반복되는 패턴
-* \+ 는 앞 문자가 1번 또는 그 이상 반복되는 패턴
-
-### ? 사용 예
-
-
-```python
-pattern = re.compile('D?A')     # 앞에 문자 D가 없거나, 여러번 반복되고 마지막이 A 인 문자열
-```
-
-
-```python
-pattern.search("A")
-```
-
-
-
-
-    <re.Match object; span=(0, 1), match='A'>
-
-
-
-
-```python
-pattern.search("DA")
-```
-
-
-
-
-    <re.Match object; span=(0, 2), match='DA'>
-
-
-
-
-```python
-pattern.search("DDDDDDA")
-```
-
-
-
-
-    <re.Match object; span=(5, 7), match='DA'>
-
-
-
-
-```python
-
-```
-
-### \* 사용 예
-
-
-```python
-pattern = re.compile('D*A')     # 앞에 문자 D가 없거나, 여러번 반복되고 마지막이 A 인 문자열
-```
-
-
-```python
-pattern.search("A")
-```
-
-
-
-
-    <re.Match object; span=(0, 1), match='A'>
-
-
-
-
-```python
-pattern.search("DA")
-```
-
-
-
-
-    <re.Match object; span=(0, 2), match='DA'>
-
-
-
-
-```python
-pattern.search("DDDDDDDDDDDDDDDDDDDDDDDDDDDDA")
-```
-
-
-
-
-    <re.Match object; span=(0, 29), match='DDDDDDDDDDDDDDDDDDDDDDDDDDDDA'>
-
-
-
-
-```python
-pattern = re.compile('AD*A')     # 앞에 문자 D가 없거나, 여러번 반복되고 마지막이 A 인 문자열
-```
-
-
-```python
-pattern.search("ADA")
-```
-
-
-
-
-    <re.Match object; span=(0, 3), match='ADA'>
-
-
-
-
-```python
-pattern.search("ADDDDDDDDDDDDDDDDDDA")
-```
-
-
-
-
-    <re.Match object; span=(0, 20), match='ADDDDDDDDDDDDDDDDDDA'>
-
-
-
-
-```python
-
-```
-
-* 참고: https://regexr.com/
-
-### + 사용 예
-
-
-```python
-pattern = re.compile('D+A')
-```
-
-
-```python
-pattern.search("A")
-```
-
-
-```python
-pattern.search("DA")
-```
-
-
-
-
-    <re.Match object; span=(0, 2), match='DA'>
-
-
-
-
-```python
-pattern.search("DDDDDDDDDDDDDDDDDDDDDDDDDDDDA")
-```
-
-
-
-
-    <re.Match object; span=(0, 29), match='DDDDDDDDDDDDDDDDDDDDDDDDDDDDA'>
-
-
-
-### 또다른 반복 표현: {n}, {m,n}
-* {n} : 앞 문자가 n 번 반복되는 패턴
-* {m, n} : 앞 문자가 m 번 반복되는 패턴부터 n 번 반복되는 패턴까지
-
-### {n} 사용 예
-
-
-```python
-pattern = re.compile('AD{2}A')
-```
-
-
-```python
-pattern.search("ADA")
-```
-
-
-```python
-pattern.search("ADDA")
-```
-
-
-
-
-    <re.Match object; span=(0, 4), match='ADDA'>
-
-
-
-
-```python
-pattern.search("ADDDA")
-```
-
-### {m,n} 사용 예
-
-
-```python
-pattern = re.compile('AD{2,6}A')    # {m,n} 은 붙여 써야 함 {m, n} 으로 쓰면 안됨(특이함)
-```
-
-
-```python
-pattern.search("ADDA")
-```
-
-
-
-
-    <re.Match object; span=(0, 4), match='ADDA'>
-
-
-
-
-```python
-pattern.search("ADDDA")
-```
-
-
-
-
-    <re.Match object; span=(0, 5), match='ADDDA'>
-
-
-
-
-```python
-pattern.search("ADDDDDDA")
-```
-
-
-
-
-    <re.Match object; span=(0, 8), match='ADDDDDDA'>
-
-
-
-### 3. [ ] 괄호 : 괄호 안에 들어가는 문자가 들어 있는 패턴
-* 예:  [abc] 는 a, b, c 중 하나가 들어 있는 패턴을 말함
-
-
-```python
-pattern = re.compile('[abcdefgABCDEFG]')    
-```
-
-
-```python
-pattern.search("a1234")
-```
-
-
-
-
-    <re.Match object; span=(0, 1), match='a'>
-
-
-
-
-```python
-pattern.search("z1234")  
-```
-
-### 하이픈(-)을 이용하면 알파벳 전체를 나타낼 수 있음
-* 예:  [a-c] 는 a, b, c 중 하나가 들어 있는 패턴을 말함
-
-
-```python
-pattern = re.compile('[a-z]')    
-```
-
-
-```python
-pattern.search("k1234")  
-```
-
-
-
-
-    <re.Match object; span=(0, 1), match='k'>
-
-
-
-
-```python
-pattern.search("Z1234")  
-```
-
-### [a-zA-Z] 으로 표기하면 대소문자를 모두 포함해서 알파벳 전체를 나타낼 수 있음
-
-
-```python
-pattern = re.compile('[a-zA-Z]') 
-```
-
-
-```python
-pattern.search("Z1234")  
-```
-
-
-
-
-    <re.Match object; span=(0, 1), match='Z'>
-
-
-
-### [a-zA-Z0-9] 로 표기하면 대소문자를 모두 포함해서 알파벳 전체와 함께 숫자 전체도 나타낼 수 있음
-
-
-```python
-pattern = re.compile('[a-zA-Z0-9]') 
-```
-
-
-```python
-pattern.search("1234---") 
-```
-
-
-
-
-    <re.Match object; span=(0, 1), match='1'>
-
-
-
-
-```python
-pattern.search("---------------!@#!@$!$%#%%%#%%@$!$!---") 
-```
-
-### [ ] 괄호 안에서 [ 바로 뒤에 ^ 을 쓰면 그 뒤에 오는 문자가 아닌 패턴을 찾음
-* 문자를 결국 알파벳, 숫자, 특수문자, whitespace(스페이스, 탭, 엔터등) 로 분류할 수 있으므로
-* [^ \t\n\r\f\v] 는 이중에서 whitespace 가 아닌 알파벳, 숫자, 특수문자를 지칭함
-
-
-```python
-pattern = re.compile('[^a-zA-Z0-9]') 
-```
-
-
-```python
-pattern.search("---------------!@#!@$!$%#%%%#%%@$!$!---") 
-```
-
-
-
-
-    <re.Match object; span=(0, 1), match='-'>
-
-
-
-
-```python
-
-```
-
-
-```python
-pattern = re.compile('[^ \t\n\r\f\v]') 
-```
-
-
-```python
-pattern.search("-") 
-```
-
-
-
-
-    <re.Match object; span=(0, 1), match='-'>
-
-
-
-
-```python
-pattern.search(" ")
-```
-
-### 그러면 한글만? --> [가-힣]
-
-
-```python
-pattern = re.compile('[가-힣]') 
-```
-
-
-```python
-pattern.search("안") 
-```
-
-
-
-
-    <re.Match object; span=(0, 1), match='안'>
-
-
-
-### 4. 조합해서 써보자
-
-
-```python
-import re
-pattern = re.compile('[a-zA-Z]+')
-matched = pattern.search("Dave")
-print(matched)
-```
-
-    <re.Match object; span=(0, 4), match='Dave'>
-
-
-### 5. 정규 표현식 라이브러리 함수 사용법
-
-### match 와 search 함수
-* match : 문자열 처음부터 정규식과 매칭되는 패턴을 찾아서 리턴
-* search : 문자열 전체를 검색해서 정규식과 매칭되는 패턴을 찾아서 리턴
-
-
-```python
-import re
-pattern = re.compile('[a-z]+')
-```
-
-
-```python
-matched = pattern.match('Dave')
-```
-
-
-```python
-searched = pattern.search("Dave")
-```
-
-
-```python
-print (matched)
-```
-
-    None
-
-
-
-```python
-print (searched)
-```
-
-    <re.Match object; span=(1, 4), match='ave'>
-
-
-### findall 함수: 정규표현식과 매칭되는 모든 문자열을 리스트 객체로 리턴함
-
-
-```python
-import re
-pattern = re.compile('[a-z]+')
-findalled = pattern.findall('Game of Life in Python')
-```
-
-
-```python
-print (findalled)
-```
-
-    ['ame', 'of', 'ife', 'in', 'ython']
-
-
-
-```python
-pattern2 = re.compile('[A-Za-z]+')
-```
-
-
-```python
-findalled2 = pattern2.findall('Game of Life in Python')
-```
-
-
-```python
-print (findalled2)
-```
-
-    ['Game', 'of', 'Life', 'in', 'Python']
-
-
-### findall 함수를 사용해서 정규표현식에 해당되는 문자열이 있는지 없는지 확인하기
-
-
-```python
-import re
-pattern = re.compile('[a-z]+')
-findalled = pattern.findall('GAME')
-if len(findalled) > 0:
-    print ("정규표현식에 맞는 문자열이 존재함")
-else:
-    print ("정규표현식에 맞는 문자열이 존재하지 않음")
-```
-
-    정규표현식에 맞는 문자열이 존재하지 않음
-
-
-
-```python
-
-```
-
-### split 함수: 찾은 정규표현식 패턴 문자열을 기준으로 문자열을 분리
-
-
-```python
-import re
-pattern2 = re.compile(':')
-splited = pattern2.split('python:java')
-```
-
-
-```python
-print (splited)
-```
-
-    ['python', 'java']
-
-
-<div class="alert alert-block alert-success">
-<strong><font color="blue" size="4em">프로그래밍 연습</font></strong><br>
-' VS ' 로 문자열 앞뒤를 분리해보기 
-</div>
-
-
-```python
-import re
-pattern2 = re.compile(' [A-Z]{2} ')
-splited = pattern2.split('python VS java')
-print (splited)
-```
-
-    ['python', 'java']
-
-
-### sub 함수: 찾은 정규표현식 패턴 문자열을 다른 문자열로 변경
-
-
-```python
-import re
-pattern2 = re.compile('-')
-subed = pattern2.sub('*', '801210-1011323')  # sub(바꿀문자열, 본래문자열)
-```
-
-
-```python
-print (subed)
-```
-
-    801210*1011323
-
-
-
-```python
-subed = re.sub('-', '*', '801210-1011323')  # sub(정규표현식, 바꿀문자열, 본래문자열)
-```
-
-
-```python
-print (subed)
-```
-
-    801210*1011323
-
-
-
-```python
-
-```
-
-
-```python
-801210-*******
-```
-
-<div class="alert alert-block alert-success">
-<strong><font color="blue" size="4em">도전 과제</font></strong><br>
-주민번호 뒷자리를 * 로 바꿔서 가려보기<br>
-re.sub('-------', '------', each_row[1].value)   <--- 정규표현식, 바꿀문자열 을 넣어봅니다.
-</div>
-<pre>
-import openpyxl
-work_book = openpyxl.load_workbook('data_kr.xlsx')
-work_sheet = work_book.active
-for each_row in work_sheet.rows:
-    print(re.sub('-------', '------', each_row[1].value))
-    
-work_book.close()
-</pre>
-
-
-```python
-import openpyxl
-work_book = openpyxl.load_workbook('data_kr.xlsx')
-work_sheet = work_book.active
-for each_row in work_sheet.rows:
-    print(re.sub('-[0-9]{7}', '-*******', each_row[1].value))
-
-work_book.close()
-```
-
-    주민등록번호
-    800215-*******
-    821030-*******
-    841230-*******
-    790903-*******
-    800125-*******
-    820612-*******
-
