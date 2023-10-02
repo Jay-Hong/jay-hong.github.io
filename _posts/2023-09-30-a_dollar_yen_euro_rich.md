@@ -25,46 +25,43 @@ excerpt: false
 
 <br>
 
-+ 🐼 ¥ 909.00 ⬆️ 매도 📌
++ 🐼 ¥ 910.00 ⬆️ 매도 📌
 
-+ 🦁 ¥ 899.50 ⬇️ 매수 예약 ⏰ (~8/31)
++ 🦁 ¥ 900 초반 ⬇️ 매수  📌
 
 <br>
 
 
-$ 달러
-  - 🦁 $ 1270 ⬇️ = No.2 매수 할 것 📌
+$ 달러 (원화투자)
+
++ 🦁 $ 1345 ⬇️ 달러매수 (원화매도)  📌 (원화투자)
+
++ 🐼 $ 1355 ⬆️ 달러매도 (원화매수)  📌 (원화투자)
+
+참고 달러로 원화투자 : <https://blog.naver.com/boot/223208007166>
 
 <br><br>
 
 ## History
 
-08/28
+09/27
 
-+ NO.8 &nbsp; ¥ `957` 기준으로 가격 재조정 함 (⬆️+1누적 ⬇️-1누적)
-  - 엔/원 환율 떨어졌는데 추가 매수할 자금 부족
++ 키움 외화RP $1,000 매수 (총 $4,000)
 
-08/25
+<br>
+09/27
 
-+ ~~🦁 ¥ 909.80 ⬇️ No.15 매수 예약 ⏰ (~8/31)~~
-  - ¥ 908.22 매수 ✔️ (예약매수)
++ ₩ 원화투자 $500 No.1 매수 ✔️
++ $ 달러투자 1,000 매도 $ No.1 매도 ✔️
 
-08/24
+<br>
 
-+ ~~🦁 ¥ 914.00 ⬇️ No.14 매수 예약 ⏰~~
-  - ¥ 912.66 매수 ✔️ (예약매수 안되어 직접)
+09/11
 
-08/14
++ 키움 외화RP $2,000 매수 (총 $3,000)
 
-+ ~~🐼 ¥ 919 ⬆️ = No.14 매도 할것~~ 
-  - 919.60 매도 ✔️
-
-08/11
-
-+ ~~엔화 ¥280,000 매입하기~~ 
-  - ~~911 ⬇️ 에서 매입 (키움) 🫸 `912` ⬇️ 까지 허용~~
-  - 910.49 매입 완료 ✔️
-
++ 🐼 ¥ 909 ⬆️ = No.15 매도
+  - ¥ 910.29 매도 ✔️ (매도)
 
 
 <br>
@@ -90,19 +87,18 @@ $ 달러
 | 12 |  9.2600 | ¥100,000 |
 | 13 |  9.1700 | ¥100,000 |
 | 14 |  9.0666 | ¥100,000 |
-| 15 |  9.0122 | ¥100,000 |
+|    |         |          |
 |    |         |          |
 |    |         |          |
 
 
 <br>
 
-
-## [$](https://docs.google.com/spreadsheets/d/1IqL_8FAx_kYtlc0KbnADYPbnJXeQJpRt/edit#gid=1043984204){: .btn .btn--light-outline .btn--x-large} &nbsp; RP $1,000
+## [₩](https://docs.google.com/spreadsheets/d/1IqL_8FAx_kYtlc0KbnADYPbnJXeQJpRt/edit#gid=1886610459){: .btn .btn--light-outline .btn--x-large} &nbsp; ¥ 베이스
 
 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
 |---:|--------:|---------:|
-|  1 |    1320 |   $1,000 |
+|  1 |         |          |
 |  2 |         |          |
 |  3 |         |          |
 |  4 |         |          |
@@ -114,4 +110,38 @@ $ 달러
 | 10 |         |          |
 |    |         |          |
 
+<br>
 
+## [₩](https://docs.google.com/spreadsheets/d/1IqL_8FAx_kYtlc0KbnADYPbnJXeQJpRt/edit#gid=1056984845){: .btn .btn--light-outline .btn--x-large} &nbsp; $ 베이스
+
+| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+|---:|--------:|---------:|
+|  1 | 1350.65 |   $500   |
+|  2 |         |          |
+|  3 |         |          |
+|  4 |         |          |
+|  5 |         |          |
+|  6 |         |          |
+|  7 |         |          |
+|  8 |         |          |
+|  9 |         |          |
+| 10 |         |          |
+|    |         |          |
+
+<br>
+
+## [$](https://docs.google.com/spreadsheets/d/1IqL_8FAx_kYtlc0KbnADYPbnJXeQJpRt/edit#gid=1043984204){: .btn .btn--light-outline .btn--x-large} &nbsp; RP $4,000
+
+| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+|---:|--------:|---------:|
+|  1 |         |          |
+|  2 |         |          |
+|  3 |         |          |
+|  4 |         |          |
+|  5 |         |          |
+|  6 |         |          |
+|  7 |         |          |
+|  8 |         |          |
+|  9 |         |          |
+| 10 |         |          |
+|    |         |          |
