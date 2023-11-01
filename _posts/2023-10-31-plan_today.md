@@ -23,47 +23,47 @@ excerpt: 뉴스 추가 📌
 
 ## ☀️ 오늘
 
-1. 뉴스 추가 (공수계산기)
+1. 공수계산기
   - <https://m.news.nate.com/rank/list>
-  - <https://news.nate.com/rank>
-  - <https://news.nate.com/photo/list?mid=n0807> (화재 될만한 기사만 가져와 or 필요없을 듯)
-
-1. 배너광고 Background에 기본 광고 삽입 (현재 앱광고 or 다른 내 광고)
+  - 뉴스리스트 Native 광고 삽입 (광고 이미지 조정)
+  - 구독서비스로 전환하기 (일년에 9,900)
+  - 앱 구매 여부 확인 로직 재작성
+  - 배너광고 Background에 기본 광고 삽입 (현재 앱광고 or 다른 내 광고)
+  - 구글 검색 "UIButton pressed animation" 버튼 애니메이션
+  - <https://baked-corn.tistory.com/124>  ➡️ tableView.estimatedRowHeight
+  - <https://developers.google.com/admob/ios/native/advanced>
+  - <https://motics.vivushub.com/blog/how-to-integrate-admob-native-ads-in-ios-collectionview-or-tableview-swift/153/>
+  - <https://github.com/googlecodelabs/admob-native-advanced-feed/blob/master/ios/final/NativeAdvancedTableViewExample/TableViewController.swift>
+  - <https://www.google.com/search?q=tableview+native+ads&sca_esv=574251503&sxsrf=AM9HkKlRMwaCiq0T0gmqjGa5OCIuhJO2Zg%3A1697606580039&ei=tGsvZeb9Aai12roPm6Cl8Aw&ved=0ahUKEwjmp6-p7f6BAxWomlYBHRtQCc4Q4dUDCBA&uact=5&oq=tableview+native+ads&gs_lp=Egxnd3Mtd2l6LXNlcnAiFHRhYmxldmlldyBuYXRpdmUgYWRzMgoQABhHGNYEGLADMgoQABhHGNYEGLADSIUaUIUTWLoUcAF4AZABAJgBggGgAfoBqgEDMC4yuAEDyAEA-AEBwgIHECMYsAIYJ-IDBBgAIEGIBgGQBgI&sclient=gws-wiz-serp>
 
 1. 일다오 자동 Update JSON ➡️ 👋 수동처리 (매주 수 , 토 04:00 이후) 📌
-  - Crawler 수정
   - 순서정렬, 삭제, 벼룩시장 등
   - Error 메시지 확인
-  - IP확인
 
 ​
 
 ## 🏁 완료 &nbsp; 
+1. BigImageCell 완성 ✔️ (10/25)
+1. 스포츠, 연예 뉴스 51~100위 추가 ✔️ (10/25)
+1. ~~Calculenar Json 수정 완료 (지역빈경우 오류해결, 클릭안될시 오류 해결)~~ ✔️ (10/25)
+1. ~~시사, 스포츠, 연예 가져와서 랜덤 배치~~ ✔️ (10/16)
+1. ~~뉴스 디테일, 채용정보 화면 (Scroll Animation) 완성~~ ✔️ (10/13)
+1. ~~공구장 메인 재배치~~ ✔️ (10/5)
+1. ~~청소기바퀴 재등록~~ ✔️ (10/5)
+1. ~~주문처리 완료~~ ✔️ (10/5)
+1. ~~주문처리 완료~~ ✔️ (10/4)
+1. ~~주문처리 완료~~ ✔️ (10/2)
+
 1. ~~News 보기 Top View 닫기, back, forward 버튼 완료~~ ✔️ (9/26)
-1. ~~서울 , 부산 , 그외 순으로 가져오기 완료~~ ✔️ (9/20)
-1. ~~ildao_seoul 작성 중 (본문가져오기 함수분리 성공)~~ ✔️ (9/14)
-1. ~~Ildao Crawler range 82 Test완료 (과요청시 X) ➡️ range 77로 맞춤~~ ✔️ (9/14)
-1. ~~ildao_result.json 글자수 500 이상시만 jobinfoURL.json 업데이트~~ ✔️ (9/14)
-1. ~~채용정보 추가~~ ✔️ (9/13)
-1. ~~채용정보 Update~~ ✔️ (9/9)
-1. ~~News 배치 초안 구상 완료~~ ✔️ (9/8)
-1. ~~User-Agent 다양화 관련 NULL ERROR 해결~~ ✔️ (9/7) ➡️ "크롤링 중 IP 차단을 피하는 전략과 기법" 하단에 기록
-1. ~~News_JSON Github Action 적용~~  ✔️ (9/6)
-1. ~~ildao User-Agent 다양화~~  ✔️ (9/6)
-1. ~~네이트 뉴스 User-Agent 다양화~~  ✔️ (9/5)
+1. ~~ildao_multi 반복문 함수 사용하기 (서울 ➡️ 부산 ➡️ 나머지) 완료~~ ✔️ (9/20)
 1. ~~네이트 뉴스 JSON 가져오기 성공 (Scrapy, Selenium 이용)~~  ✔️ (9/4)
-1. ~~네이트 뉴스로 가져오기~~ ✔️ (9/2)
-1. ~~선풍기 수리 : <https://blog.naver.com/march_lily/223154519243>~~ ✔️ (9/1)
 
 ​
 
 ## 💥 단기
 
 + 공수계산기
-  - 구독서비스로 전환하기 (일년에 9,900)
-  - 앱 구매 여부 확인 로직 재작성
   - News 잘보이게 배치? (공수계산기, 뉴스, 채용정보 나누기) 뉴스&채용 이미지 애니메이션?
-  - ildao_multi 반복문 함수 사용하기 (서울 ➡️ 부산 ➡️ 나머지)
 ​
 + 채용정보 다양하게 올려주기
   - 밴드 등 올려주기 ➡️ 내 컨텐츠 강화 ➡️ 나중에 수익화 테스트
