@@ -1,12 +1,12 @@
 ---
-title:  🔥 오늘의 계획 🔥 - 미친 시간 투자와 효율성
+title:  🔥 오늘의 계획 🔥 - 전력투구 (지금변하지 않으면, 영원히 변할 수 없다)
 categories: Standard.Hong
 tag: [⏰ 자기관리]
 toc: true
-excerpt: 뉴스 추가 📌
+excerpt: 구독 추가 📌
 ---
 ​​
-아침에 스트레칭 ➡️ 운동 ➡️ 샤워 ➡️ 매장 ➡️ 명상 ➡️ 계획 ➡️ 일시작 어때?
+아침에 스트레칭 ➡️ 운동 ➡️ 샤워 ➡️ 매장 ➡️ 계획 ➡️ 명상 ➡️ 일시작 어때?
 ​​​
 ## ⭐️ 우선순위 정해 즐겁게 일하자
 
@@ -39,6 +39,26 @@ excerpt: 뉴스 추가 📌
 
   - [Swift 인앱결제 구현하기 (영수증가져오기 까지)](https://s-o-h-a.tistory.com/37)
 
+  - [Storekit Video](https://developer.apple.com/videos/all-videos/?q=storekit)
+
+  - [OS in-app subscription tutorial with StoreKit 2 and Swift](https://www.revenuecat.com/blog/engineering/ios-in-app-subscription-tutorial-with-storekit-2-and-swift/)
+
+  - [Validating receipts on the device (애플문서)](https://developer.apple.com/documentation/appstorereceipts/validating_receipts_on_the_device)
+
+  - 구글에서 "storekit 2 subscriptions" 검색
+    + Actor 뿌시기 : <https://sujinnaljin.medium.com/swift-actor-%EB%BF%8C%EC%8B%9C%EA%B8%B0-249aee2b732d>
+    + How To Setup Auto-Renewable Subscription in Swift StoreKit2 : <https://www.youtube.com/watch?v=vk6B79dE3Lw>
+
+  - 구글에서 "storekit 2 by using storyboard" 검색
+    + Building XCode UI with storyboard + struct : <https://stackoverflow.com/questions/68716223/building-xcode-ui-with-storyboard-struct>
+    + Using Xcode Previews with existing UIKit views without using SwiftUI : <https://www.avanderlee.com/xcode/xcode-previews/>
+    + UIViewRepresentable explained to host UIView instances in SwiftUI : <https://www.avanderlee.com/swiftui/integrating-swiftui-with-uikit>
+
+  - SwiftUI 밖에서 StoreKiet2 사용하기 후보
+    + Working with in-app purchases in StoreKit 2 : <https://wwdcbysundell.com/2021/working-with-in-app-purchases-in-storekit2/>
+    + [Implement In-App Purchases with StoreKit: A Guide for iOS Developers](https://chisw.com/blog/in-app-purchases-with-storekit/)
+    + [Implementing and testing In-App Purchases with StoreKit2 in Xcode 13, Swift 5.5 and iOS 15](https://iosexample.com/implementing-and-testing-in-app-purchases-with-storekit2-in-xcode-13-swift-5-5-and-ios-15/)
+
   - []()
 
   - []()
@@ -54,10 +74,14 @@ excerpt: 뉴스 추가 📌
 ​
 
 ## 🏁 완료 &nbsp; 
-1. 공수계산기 3.4 완료
-1. 배너광고 Background에 기본 광고 삽입 (In-App 결재)
-1. 채용&뉴스 이미지 애니메이션
-1. News List 광고 완성 ✔️ (11/7)
+
+✔️ 공수계산기 3.4 완료
+
+✔️ 배너광고 Background에 기본 광고 삽입 (In-App 결재)
+
+✔️ 채용&뉴스 이미지 애니메이션
+
+✔️ News List 광고 완성 (11/7)
 ​
 
 ## 💥 단기
@@ -116,8 +140,8 @@ excerpt: 뉴스 추가 📌
 ## ⛵️ 하싶은일 🛩️
 
 + 독서
-  - 위기의 역사
   - 세이노의 가르침
+  - 위기의 역사
   - 피터드러커 자기경영노트
   - 아빠의 첫 돈공부, 투자의 신
   - 못 참는 아이 욱하는 부모
