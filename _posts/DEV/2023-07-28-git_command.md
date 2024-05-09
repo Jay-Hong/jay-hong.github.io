@@ -114,6 +114,9 @@ $ git log --oneline --graph --all --decorate
 
 ## 되돌리기
 ```
+git reset [testfile]            //  testfile 스테이징 취소하기 (soft, mixed, hard 중 mixed reset으로 작동)
+git reset --hard [testfile]     //  변경사항 되돌리기 (커밋하지 않은)
+
 git reset --hard HEAD~
 git reset --hard HEAD~3
 git reset --hard HEAD^
