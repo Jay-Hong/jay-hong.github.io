@@ -1,5 +1,5 @@
 ---
-title:  Git 개발환경 brnach
+title:  Git 개발환경 branch
 categories: Git.Hub
 tag: [🐙 Git﹒GitHub]
 toc: true

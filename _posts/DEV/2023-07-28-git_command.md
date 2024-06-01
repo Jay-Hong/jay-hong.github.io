@@ -84,7 +84,7 @@ $ git push origin -d test3
 
 ## 빨리감기 병합 안하기
 ```
-$ git marge --no-ff [병합할Branch]
+$ git merge --no-ff [병합할Branch]
 ```
 
 ## 커밋 수정하기
@@ -114,12 +114,27 @@ $ git log --oneline --graph --all --decorate
 
 ## 되돌리기
 ```
-git reset [testfile]            //  testfile 스테이징 취소하기 (soft, mixed, hard 중 mixed reset으로 작동)
-git reset --hard [testfile]     //  변경사항 되돌리기 (커밋하지 않은)
+👎🏻 스테이징 취소하기
+git reset [filename]            //  filename 스테이징 취소하기 (soft, mixed, hard 중 mixed reset으로 작동)
+git reset                       //  모든파일 스테이징 취소하기 (soft, mixed, hard 중 mixed reset으로 작동)
 
-git reset --hard HEAD~
+git restore --staged [filename] //  filename 스테이징 취소하기
+git restore --staged .          //  모든파일 스테이징 취소하기
+
+🗑️ 변경사항 초기화
+git reset --hard                //  가장 마지막 commit 된 버전으로 모든 변경사항이 초기화
+
+git restore .                   //  스테이지되지 않은 모든 변경사항 초기화
+git restore [filename]          //  filename이 스테이지되지 않았으면 초기화 (스테이지 되어있으면 초기화 안됨)
+git checkout -- [filename]      //  바로 위와 같음
+
+⭐️ 커밋 되돌리기
+git reset --hard HEAD~          //  헤드의 부모 커밋
+git reset --hard HEAD~2         //  헤드의 할아버지 커밋
 git reset --hard HEAD~3
-git reset --hard HEAD^
+
+git reset --hard HEAD^          //  헤드의 부모 커밋
+git reset --hard HEAD^2         //  헤드의 두 번째 부모 (병합커밋 처럼부모가 둘 이상인 커밋에서만 의미 있음)
 ```
 ⌜팀 개발을 위한 Git GitHub시작하기⌟ p.255 참고
 
