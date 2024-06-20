@@ -1,7 +1,7 @@
 ---
-title:  🍜 BeautifulSoup Basic 💡
+title:  🍜 BeautifulSoup Basic 🌱
 categories: Crawling
-tag: [🍜 BeautifulSoup, 💡 basic]
+tag: [🍜 BeautifulSoup, 🌱 basics]
 toc: true
 excerpt: false
 ---

@@ -1,7 +1,7 @@
 ---
-title:  🐧 리눅스 기초편 Bash Shell Script 💡
+title:  🐧 리눅스 기초편 Bash Shell Script 🌱
 categories: Linux
-tag: [🐧 Linux, 💡 basic]
+tag: [🐧 Linux, 🌱 basics]
 toc: true
 excerpt: false
 ---

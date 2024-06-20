@@ -1,7 +1,7 @@
 ---
-title:  Regular Expression Basic 💡
+title:  Regular Expression Basic 🌱
 categories: Crawling
-tag: [Regular Expression, 💡 basic]
+tag: [Regular Expression, 🌱 basics]
 toc: true
 excerpt: false
 ---

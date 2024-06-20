@@ -1,7 +1,7 @@
 ---
-title:  🌵 Python Basic 💡
+title:  🌵 Python Basic 🌱
 categories: Python
-tag: [🌵 python, 💡 basic]
+tag: [🌵 python, 🌱 basics]
 toc: true
 excerpt: false
 ---
