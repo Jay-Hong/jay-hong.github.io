@@ -5,6 +5,8 @@ tag: [🍏 iOS, 🔗 link]
 toc: false
 excerpt: false
 ---
+​
+​&nbsp;​
 
 [ 문자열"AGZ"이 문자열배열 ["A","B","C","D"]의 어떤 값이라도 갖는지 탐색] : <https://stackoverflow.com/questions/52711049/detect-if-string-contains-any-element-of-a-string-array>
 
@@ -33,3 +35,9 @@ extension String {
     }
 }
 ```
+
+​
+
+​
+
+​

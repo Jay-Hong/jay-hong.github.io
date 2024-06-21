@@ -5,7 +5,8 @@ tag: [🍏 iOS, 🔗 link]
 toc: false
 excerpt: false
 ---
-<br>
+
+​&nbsp;
 
 [View Controller의 생명주기(Life-Cycle)] : <https://zeddios.tistory.com/43>
 ​
@@ -129,5 +130,8 @@ viewWillDisAppear는 뷰가 사라지기 직전에 호출되는 함수인데요
 
 역시 위와 같아요viewDidDisAppear가 호출되면,뷰 컨트롤러가 뷰가 제거되었음을 알려준답니다. 
 
-<br>
+​
 
+​
+
+​

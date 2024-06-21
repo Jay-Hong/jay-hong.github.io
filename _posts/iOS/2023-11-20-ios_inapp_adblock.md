@@ -5,10 +5,12 @@ tag: [🍏 iOS, 🔗 link]
 toc: false
 excerpt: false
 ---
+​
+​&nbsp;​
 
 [ios 인앱광고 차단하기] : <https://www.eyes.co.kr/mohae/mohae_view/547>
-
-
+​
+​
 
 아이폰 쓰는 사람 중에 인앱 광고 특히 게임 같은 거 할 때 저처럼 인앱 광고 많이 나와서 하기 싫은 사람들 있을 거예요
 
@@ -20,7 +22,7 @@ excerpt: false
 
 AdGuard DNS는 광고를 차단해주는 무료 공개 DNS 서버로 기기에서 DNS 서버로 설정만 해주면 기본적으로 인앱 광고가 차단됩니다.
 
-
+​
 
 ## 적용하기
 
@@ -32,9 +34,9 @@ IOS기기 (아이폰/아이패드등)에서 위 사이트 접속 후 " AdGuard D
 
 ![](https://wimg.eyes.co.kr//resource/mohae/2022/12/c913e74ad512f5711dfa2183bb47f539.png)
 
+​
 
-
-
+​
 
 프로파일 다운로드 후
 
@@ -43,7 +45,6 @@ IOS기기 (아이폰/아이패드등)에서 위 사이트 접속 후 " AdGuard D
 팝업 뜨면 허용 선택
 
 ![](https://wimg.eyes.co.kr//resource/mohae/2022/12/4ef8953c66e0e16cc5124d6e2ede5380.png)
-
 
 이제 아이폰 설정에 들어가면 상단에 프로파일이 다운로드됨이라는 메뉴가 생깁니다.
 
@@ -70,3 +71,9 @@ DNS 서버 설정 후 주로 사용하는 게임/ 어플에 인앱 광고나 영
 " dns.adguard.com " 으로 입력만 해주시면 더 간단하게 설정 가능합니다.
 
 그럼 이만
+
+​
+
+​
+
+​

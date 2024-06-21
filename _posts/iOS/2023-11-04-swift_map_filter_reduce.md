@@ -6,6 +6,8 @@ toc: false
 excerpt: false
 ---
 
+​&nbsp;​
+
 [Swift :: 고차함수 - Map, Filter, Reduce 알아보기] : [Swift :: 고차함수 - Map, Filter, Reduce 알아보기](https://shark-sea.kr/entry/Swift-%EA%B3%A0%EC%B0%A8%ED%95%A8%EC%88%98-Map-Filter-Reduce-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0)
 
 
@@ -46,3 +48,9 @@ var sortedArray = numberArray.sorted()                  //  [2, 6, 9, 11]
 let strToInt: (Substring) -> Int = { Int($0) ?? 9999 }  //  .map() 사용 위함 -> String을 Int로 변환해줌
 var stringArray = stringInput.split(separator: ",").map(strToInt)
 ```
+
+​
+
+​
+
+​

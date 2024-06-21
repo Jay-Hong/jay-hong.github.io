@@ -5,14 +5,17 @@ tag: [🍏 iOS, 🔗 link]
 toc: false
 excerpt: false
 ---
-<br>
+
+​&nbsp;​
 
 [CABasicAnimation] : <https://developer.apple.com/documentation/quartzcore/cabasicanimation>
 
 [Swift - Png 한장으로 애니메이션 효과주기 CABasicAnimation] : <https://hooni99918.tistory.com/78>
 ​
-<br><br><br>
 ​
+
+​
+
 [공식문서](https://developer.apple.com/documentation/quartzcore/cabasicanimation)에는 총 4가지가 기술되어 있습니다.
 
 1.Opacity를 설정하거나
@@ -182,3 +185,9 @@ viewDidLoad 에 사용될 func를 지정해 줍니다.
 ```
 
 코드를 커스텀해서 원하는 결과물을 얻어보아요
+
+​
+
+​
+
+​

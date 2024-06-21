@@ -6,6 +6,8 @@ toc: false
 excerpt: false
 ---
 
+​&nbsp;
+
 [iOS Screen Size] : <https://screensizes.app/?compare=ipad> (아이폰 화면 사이즈 등)
 
 [iOS Developers Start Here] : <https://useyourloaf.com> (아이폰 화면 사이즈 등)
@@ -20,3 +22,9 @@ excerpt: false
 [Swift 참고] : <https://borabong.tistory.com>
 
 [Xcode download] : <https://developer.apple.com/download/all/>
+
+​
+
+​
+
+​

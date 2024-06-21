@@ -6,6 +6,8 @@ toc: false
 excerpt: false
 ---
 
+​&nbsp;
+
 [기초문법 #1 클로저 기본 - Closure] : [Swift : 기초문법 [#1 클로저 기본 - Closure]](https://seons-dev.tistory.com/entry/Swift-%EA%B8%B0%EC%B4%88%EB%AC%B8%EB%B2%9527-%ED%81%B4%EB%A1%9C%EC%A0%80)
 
 
@@ -14,3 +16,8 @@ excerpt: false
 
 [클로저(Closure) 정복하기(1/3) - 클로저, 누구냐 넌] : <https://babbab2.tistory.com/81>
 
+​
+
+​
+
+​
